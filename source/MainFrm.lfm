@@ -1,0 +1,417 @@
+object MainForm: TMainForm
+  Left = 434
+  Height = 661
+  Top = 151
+  Width = 868
+  ActiveControl = TopPanel
+  Caption = 'MainForm'
+  ClientHeight = 661
+  ClientWidth = 868
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnShow = FormShow
+  LCLVersion = '2.0.6.0'
+  object TopPanel: TPanel
+    Left = 0
+    Height = 272
+    Top = 0
+    Width = 868
+    Align = alTop
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    BevelOuter = bvNone
+    ClientHeight = 272
+    ClientWidth = 868
+    TabOrder = 0
+    object btRun: TButton
+      Left = 720
+      Height = 27
+      Top = 18
+      Width = 123
+      Caption = 'Run'
+      Default = True
+      OnClick = btRunClick
+      TabOrder = 0
+    end
+    object cbEpidemicModel: TComboBox
+      Left = 32
+      Height = 34
+      Top = 16
+      Width = 340
+      ItemHeight = 0
+      OnChange = cbEpidemicModelChange
+      Style = csDropDownList
+      TabOrder = 1
+    end
+    object pgModels: TPageControl
+      Left = 232
+      Height = 177
+      Top = 72
+      Width = 611
+      ActivePage = tsSEIRModel
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      ShowTabs = False
+      TabIndex = 1
+      TabOrder = 2
+      object tsSIRModel: TTabSheet
+        Caption = 'tsSIRModel'
+        ClientHeight = 173
+        ClientWidth = 601
+        object lbSIRModelS: TLabel
+          Left = 8
+          Height = 17
+          Top = 17
+          Width = 8
+          Caption = 'S'
+          FocusControl = edSIRModelS
+          ParentColor = False
+        end
+        object lbSIRModelI: TLabel
+          Left = 8
+          Height = 17
+          Top = 57
+          Width = 4
+          Caption = 'I'
+          FocusControl = edSIRModelI
+          ParentColor = False
+        end
+        object lbSIRModelR: TLabel
+          Left = 8
+          Height = 17
+          Top = 97
+          Width = 9
+          Caption = 'R'
+          FocusControl = edSIRModelR
+          ParentColor = False
+        end
+        object edSIRModelS: TSpinEdit
+          Left = 24
+          Height = 35
+          Top = 8
+          Width = 112
+          Alignment = taRightJustify
+          MaxValue = 0
+          TabOrder = 0
+          Value = 1000
+        end
+        object edSIRModelI: TSpinEdit
+          Left = 23
+          Height = 35
+          Top = 48
+          Width = 112
+          Alignment = taRightJustify
+          MaxValue = 0
+          TabOrder = 1
+        end
+        object edSIRModelR: TSpinEdit
+          Left = 24
+          Height = 35
+          Top = 88
+          Width = 112
+          Alignment = taRightJustify
+          MaxValue = 0
+          TabOrder = 2
+        end
+      end
+      object tsSEIRModel: TTabSheet
+        Caption = 'tsSEIRModel'
+        ClientHeight = 173
+        ClientWidth = 601
+        object lbSEIRModelS: TLabel
+          Left = 8
+          Height = 17
+          Top = 17
+          Width = 8
+          Caption = 'S'
+          FocusControl = edSEIRModelS
+          ParentColor = False
+        end
+        object lbSEIRModelE: TLabel
+          Left = 8
+          Height = 17
+          Top = 57
+          Width = 9
+          Caption = 'E'
+          FocusControl = edSEIRModelE
+          ParentColor = False
+        end
+        object lbSEIRModelI: TLabel
+          Left = 9
+          Height = 17
+          Top = 97
+          Width = 4
+          Caption = 'I'
+          FocusControl = edSEIRModelI
+          ParentColor = False
+        end
+        object lbSEIRModelR: TLabel
+          Left = 8
+          Height = 17
+          Top = 137
+          Width = 9
+          Caption = 'R'
+          FocusControl = edSEIRModelR
+          ParentColor = False
+        end
+        object edSEIRModelS: TSpinEdit
+          Left = 24
+          Height = 35
+          Top = 8
+          Width = 112
+          Alignment = taRightJustify
+          MaxValue = 0
+          TabOrder = 0
+          Value = 1000
+        end
+        object edSEIRModelE: TSpinEdit
+          Left = 24
+          Height = 35
+          Top = 48
+          Width = 112
+          Alignment = taRightJustify
+          MaxValue = 0
+          TabOrder = 1
+        end
+        object edSEIRModelI: TSpinEdit
+          Left = 24
+          Height = 35
+          Top = 88
+          Width = 112
+          Alignment = taRightJustify
+          MaxValue = 0
+          TabOrder = 2
+        end
+        object edSEIRModelR: TSpinEdit
+          Left = 24
+          Height = 35
+          Top = 128
+          Width = 112
+          Alignment = taRightJustify
+          MaxValue = 0
+          TabOrder = 3
+        end
+      end
+      object tsZombiesAttackBasicModel: TTabSheet
+        Caption = 'tsZombiesAttackBasicModel'
+        ClientHeight = 173
+        ClientWidth = 601
+        object lbZombiesAttackBasicModelS: TLabel
+          Left = 8
+          Height = 17
+          Top = 17
+          Width = 8
+          Caption = 'S'
+          FocusControl = edZombiesAttackBasicModelS
+          ParentColor = False
+        end
+        object lbZombiesAttackBasicModelZ: TLabel
+          Left = 8
+          Height = 17
+          Top = 57
+          Width = 9
+          Caption = 'Z'
+          FocusControl = edZombiesAttackBasicModelZ
+          ParentColor = False
+        end
+        object lbZombiesAttackBasicModelR: TLabel
+          Left = 8
+          Height = 17
+          Top = 97
+          Width = 9
+          Caption = 'R'
+          FocusControl = edZombiesAttackBasicModelR
+          ParentColor = False
+        end
+        object edZombiesAttackBasicModelS: TSpinEdit
+          Left = 24
+          Height = 35
+          Top = 8
+          Width = 112
+          Alignment = taRightJustify
+          MaxValue = 0
+          TabOrder = 0
+          Value = 1000
+        end
+        object edZombiesAttackBasicModelZ: TSpinEdit
+          Left = 23
+          Height = 35
+          Top = 48
+          Width = 112
+          Alignment = taRightJustify
+          MaxValue = 0
+          TabOrder = 1
+        end
+        object edZombiesAttackBasicModelR: TSpinEdit
+          Left = 24
+          Height = 35
+          Top = 88
+          Width = 112
+          Alignment = taRightJustify
+          MaxValue = 0
+          TabOrder = 2
+        end
+      end
+      object tsZombiesAttackModelWithLatentInfection: TTabSheet
+        Caption = 'tsZombiesAttackModelWithLatentInfection'
+        ClientHeight = 173
+        ClientWidth = 601
+        object lbZombiesAttackWithLatentInfectionModelS: TLabel
+          Left = 8
+          Height = 17
+          Top = 17
+          Width = 8
+          Caption = 'S'
+          FocusControl = edZombiesAttackWithLatentInfectionModelS
+          ParentColor = False
+        end
+        object lbZombiesAttackWithLatentInfectionModelE: TLabel
+          Left = 8
+          Height = 17
+          Top = 57
+          Width = 9
+          Caption = 'E'
+          FocusControl = edZombiesAttackWithLatentInfectionModelE
+          ParentColor = False
+        end
+        object lbZombiesAttackWithLatentInfectionModelZ: TLabel
+          Left = 9
+          Height = 17
+          Top = 97
+          Width = 9
+          Caption = 'Z'
+          FocusControl = edZombiesAttackWithLatentInfectionModelZ
+          ParentColor = False
+        end
+        object lbZombiesAttackWithLatentInfectionModelR: TLabel
+          Left = 8
+          Height = 17
+          Top = 137
+          Width = 9
+          Caption = 'R'
+          FocusControl = edZombiesAttackWithLatentInfectionModelR
+          ParentColor = False
+        end
+        object edZombiesAttackWithLatentInfectionModelS: TSpinEdit
+          Left = 24
+          Height = 35
+          Top = 8
+          Width = 112
+          Alignment = taRightJustify
+          MaxValue = 0
+          TabOrder = 0
+          Value = 1000
+        end
+        object edZombiesAttackWithLatentInfectionModelE: TSpinEdit
+          Left = 24
+          Height = 35
+          Top = 48
+          Width = 112
+          Alignment = taRightJustify
+          MaxValue = 0
+          TabOrder = 1
+        end
+        object edZombiesAttackWithLatentInfectionModelZ: TSpinEdit
+          Left = 24
+          Height = 35
+          Top = 88
+          Width = 112
+          Alignment = taRightJustify
+          MaxValue = 0
+          TabOrder = 2
+        end
+        object edZombiesAttackWithLatentInfectionModelR: TSpinEdit
+          Left = 24
+          Height = 35
+          Top = 128
+          Width = 112
+          Alignment = taRightJustify
+          MaxValue = 0
+          TabOrder = 3
+        end
+      end
+    end
+    object lbTi: TLabel
+      Left = 24
+      Height = 17
+      Top = 96
+      Width = 12
+      Caption = 'Ti'
+      FocusControl = edTi
+      ParentColor = False
+    end
+    object lbTf: TLabel
+      Left = 24
+      Height = 17
+      Top = 144
+      Width = 13
+      Caption = 'Tf'
+      FocusControl = edTf
+      ParentColor = False
+    end
+    object edTi: TSpinEdit
+      Left = 56
+      Height = 35
+      Top = 88
+      Width = 144
+      Alignment = taRightJustify
+      MaxValue = 0
+      TabOrder = 3
+    end
+    object edTf: TSpinEdit
+      Left = 56
+      Height = 35
+      Top = 136
+      Width = 144
+      Alignment = taRightJustify
+      MaxValue = 0
+      TabOrder = 4
+      Value = 2000
+    end
+  end
+  object Chart: TChart
+    Left = 10
+    Height = 369
+    Top = 272
+    Width = 848
+    AntialiasingMode = amOn
+    AxisList = <    
+      item
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.LabelFont.Orientation = 900
+        Title.Visible = True
+        Title.Caption = 'Population'
+        Title.LabelBrush.Style = bsClear
+      end    
+      item
+        Alignment = calBottom
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.Visible = True
+        Title.Caption = 't'
+        Title.LabelBrush.Style = bsClear
+      end>
+    Extent.UseXMin = True
+    Extent.UseYMin = True
+    Extent.XMax = 10
+    Foot.Brush.Color = clBtnFace
+    Foot.Font.Color = clBlue
+    Legend.UseSidebar = False
+    Legend.Visible = True
+    Title.Brush.Color = clBtnFace
+    Title.Font.Color = clBlue
+    Title.Text.Strings = (
+      'TAChart'
+    )
+    Align = alClient
+    BorderSpacing.Left = 10
+    BorderSpacing.Right = 10
+    DoubleBuffered = True
+  end
+  object StatusBar: TStatusBar
+    Left = 0
+    Height = 20
+    Top = 641
+    Width = 868
+    Panels = <>
+  end
+end
