@@ -2,7 +2,7 @@
 
 ## What is Epidemic Simulation?
 
-Epidemic Simulation is an applcation to simulate compartimentals models in epidemiology, like SIR, SEIR or even zombies atack!
+Epidemic Simulation is an application to simulate compartimentals models in epidemiology, like SIR, SEIR or even zombies atack!
 
 ## Requirements
 
