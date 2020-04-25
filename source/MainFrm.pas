@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, TAGraph, TASeries, Forms, Controls, Graphics,
   Dialogs, ExtCtrls, StdCtrls, ComCtrls, Spin, EpidemicModels, Adapters,
-  ODESolver, Types;
+  ODESolver;
 
 type
 

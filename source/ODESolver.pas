@@ -51,77 +51,10 @@ type
       property OnStep: TStepEvent read fOnStep write SetOnStep;
     end;
 
-  TODEResult = (odeSuccess, odeBadFunc, odeFailure);
-
-  { TODESystem }
-
-  TODESystem = class
-    public
-      function Dimension: Integer; virtual;
-      function Derivatives(const t: Double; const Y: TDataArray; out dYdT: TDataArray): TODEResult; virtual;
-      // Jacobian
-  end;
-
-  { TODEStep }
-
-  TODEStep = class
-    private
-      fName: string;
-      fODESystem: TODESystem;
-      fOrder: Integer;
-    public
-      constructor Create(aODESystem: TODESystem);
-      function Apply(const T: Double; const h: Double; var Y: TDataArray; out Yerr: TDataArray; out dYdT: TDataArray): TODEResult; virtual;
-      property Name: string read fName;
-      property Order: Integer read fOrder;
-  end;
 
 implementation
 
 uses AppStrings;
-
-{ TODESystem }
-
-function TODESystem.Dimension: Integer;
-begin
-  Result:= 0;
-end;
-
-function TODESystem.Derivatives(const t: Double; const Y: TDataArray; out
-  dYdT: TDataArray): TODEResult;
-var
-  i: Integer;
-begin
-  for i:= Low(dYdT) to High(dYdT) do
-    dYdT:= 0;
-  Result:= odeSuccess;
-end;
-
-
-
-
-{ TODEStep }
-
-constructor TODEStep.Create(aODESystem: TODESystem);
-begin
-  fODESystem:= aODESystem;
-  fName:= '';
-  fOrder:= 0;
-end;
-
-function TODEStep.Apply(const T: Double; const h: Double; var Y: TDataArray;
-  out Yerr: TDataArray; out dYdT: TDataArray): TODEResult;
-var
-  i: Integer;
-begin
-  for i:= Low(dYdT) to High(dYdT) do
-    begin
-      Yerr:= 0;
-      dYdT:= 0;
-    end;
-end;
-
-
 
 { TRK4 }
 
