@@ -356,7 +356,7 @@ const
   Beta = 0.0095;   // new zombie rate
   Pi = 0;       // human birth rate
   Zeta = 0.0001;     // zombie ressurection rate
-  Delta = 0.001;    // human death rate 0.001
+  Delta = 0.0001;    // human death rate
 begin
   dYdT[SEIR_S]:= Pi - Beta*Y[SEIR_S]*Y[SEIR_I] - Delta*Y[SEIR_S];
   dYdT[SEIR_I]:= Beta*Y[SEIR_S]*Y[SEIR_I] + Zeta*Y[SEIR_R] - Alfa*Y[SEIR_S]*Y[SEIR_I];
