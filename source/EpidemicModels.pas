@@ -261,13 +261,16 @@ end;
 procedure TSIRModel.Calculate(const t: Double; const Y: TDataArray;
   var dYdT: TDataArray);
 const
-  Pi = 0;       // human birth rate
-  Delta = 0.001;    // human death rate
-  Beta = 0.0095;   // the average number of contacts per person times the probability of disease transmission in a contact between a susceptible and an infectious subject
-  Gamma = 0.0001;     // recovery or mortality rate
+  Pi = 0;          // human birth rate
+  Delta = 0.001;   // human death rate
+  Beta = 2.2/8.1;  // the average number of contacts per person times the probability of disease transmission in a contact between a susceptible and an infectious subject
+  Gamma = 1/8.1;  // recovery or mortality rate
+var
+  N: Double;
 begin
-  dYdT[SIR_S]:= Pi - Beta*Y[SIR_S]*Y[SIR_I] - Delta*Y[SIR_S];
-  dYdT[SIR_I]:= Beta*Y[SIR_S]*Y[SIR_I] - Gamma*Y[SIR_I] - Delta*Y[SIR_I];
+  N:= Y[SIR_S] + Y[SIR_I] + Y[SIR_R];
+  dYdT[SIR_S]:= Pi - Beta*Y[SIR_S]*Y[SIR_I]/N - Delta*Y[SIR_S];
+  dYdT[SIR_I]:= Beta*Y[SIR_S]*Y[SIR_I]/N - Gamma*Y[SIR_I] - Delta*Y[SIR_I];
   dYdT[SIR_R]:= Gamma*Y[SIR_I] + Delta*Y[SIR_S] + Delta*Y[SIR_R];
 end;
 
@@ -319,14 +322,18 @@ end;
 procedure TSEIRModel.Calculate(const t: Double; const Y: TDataArray;
   var dYdT: TDataArray);
 const
-  Pi = 0;       // human birth rate
-  Delta = 0.001;    // human death rate
-  Beta = 0.0095;   // the average number of contacts per person times the probability of disease transmission in a contact between a susceptible and an infectious subject
-  Gamma = 0.0001;     // recovery or mortality rate
-  Alpha = 0.001;    //the incubation period is a random variable with exponential distribution with parameter alfa
+  Pi = 0;          // human birth rate
+  Delta = 0.001;   // human death rate
+  Beta = 2.2/2.9;  // the average number of contacts per person times the probability of disease transmission in a contact between a susceptible and an infectious subject
+  Gamma = 1/2.9;  // recovery or mortality rate
+  Alpha = 1/5.2;    //the incubation period is a random variable with exponential distribution with parameter alfa
+var
+  N: Double;
 begin
-  dYdT[SEIR_S]:= Pi - Beta*Y[SEIR_S]*Y[SEIR_I] - Delta*Y[SEIR_S];
-  dYdT[SEIR_E]:= Beta*Y[SEIR_S]*Y[SEIR_I] - Alpha*Y[SEIR_E] - Delta*Y[SEIR_E];
+  N:= Y[SIR_S] + Y[SIR_I] + Y[SIR_R];
+
+  dYdT[SEIR_S]:= Pi - Beta*Y[SEIR_S]*Y[SEIR_I]/N - Delta*Y[SEIR_S];
+  dYdT[SEIR_E]:= Beta*Y[SEIR_S]*Y[SEIR_I]/N - Alpha*Y[SEIR_E] - Delta*Y[SEIR_E];
   dYdT[SEIR_I]:= Alpha*Y[SEIR_E] - Gamma*Y[SEIR_I] - Delta*Y[SEIR_I];
   dYdT[SEIR_R]:= Gamma*Y[SEIR_I] + Delta*Y[SEIR_S] + Delta*Y[SEIR_E] + Delta*Y[SEIR_R];
 end;
